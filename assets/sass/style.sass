@@ -1,0 +1,211 @@
+@import "node_modules/bootstrap/scss/bootstrap"
+
+$font-family: Tahoma, sans-serif
+$font-size: 16px
+$font-size-title: 20px
+$font-size-subtitle: 18px
+$green-dark: rgb(2,41,41)
+$green-regular: rgb(5,82,82)
+$green-light: rgb(6,102,102)
+$white: rgb(255,255,255)
+$black: rgb(0,0,0)
+$max-width: 1280px
+$breakpoint: 768px
+
+$vw-viewport: 768
+@function get-vw($font)
+  $vw-context: $vw-viewport * 0.01 * 1px
+  @return $font / $vw-context * 1vw
+  @return $font
+
+
+body
+  background: $white
+  font-family: $font-family
+  font-size: $font-size
+  font-weight: 400
+  color: $white
+  @media screen and (max-width: $breakpoint)
+    font-size: get-vw($font-size)
+div.cg-fixed-logo
+  position: fixed
+  top: 50px
+  left: 0
+  background: $green-dark
+  font-weight: 700
+  padding: 10px
+  text-align: center
+  z-index: 99
+  p
+    margin: 0
+    padding: 0
+  @media screen and (max-width: $breakpoint)
+    display: none
+div.cg-content
+  margin: 15px auto 15px auto
+  max-width: $max-width
+header
+  position: relative
+  background: $green-dark
+  display: inline-block
+  margin-bottom: 15px
+  width: 100%
+  span.cg-logo
+    display: block
+    background: $green-light
+    color: $white
+    font-size: $font-size-title
+    @media screen and (max-width: $breakpoint)
+      font-size: get-vw($font-size-title)
+    font-weight: 700
+    margin: 15px 0
+    padding: 5px 15px
+    width: max-content
+  span.cg-toggle
+    display: none
+    @media screen and (max-width: $breakpoint)
+      display: block
+      position: absolute
+      right: 15px
+      top: 20px
+      z-index: 99
+nav.cg-main
+  position: relative
+  margin: 0 15px
+  @media screen and (max-width: $breakpoint)
+    display: none
+    margin: 0
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+  li
+    display: inline-block
+    @media screen and (max-width: $breakpoint)
+      display: block
+      text-align: center
+    a
+      display: block
+      background: $green-light
+      color: $white
+      font-weight: 700
+      padding: 5px 10px
+    a:hover
+      color: $green-dark
+      text-decoration: none
+  li.cg-dropdown
+    ul
+      display: none
+      position: absolute
+      top: 34px
+      z-index: 99
+      @media screen and (max-width: $breakpoint)
+        position: relative
+        top: auto
+    ul.active
+      display: block
+    li
+      display: block
+      border-bottom: 1px solid $white
+      a
+        font-weight: 400
+    li:last-child
+      border-bottom: 0
+    @media screen and (max-width: $breakpoint)
+      li:first-child
+        border-top: 1px solid $white
+@media screen and (max-width: $breakpoint)
+  nav.cg-main.active
+    display: block
+main
+  section
+    position: relative
+    height: 100%
+    overflow: hidden
+    padding: 30px
+    min-height: 1000px
+    @media screen and (max-width: $breakpoint)
+      min-height: 0
+  section.content
+    background: $green-light
+    h1
+      border-color: $white
+      border-style: none none groove none
+      border-width: 2px
+      margin: 0 0 15px 0
+      padding: 0 0 15px 0
+    p
+      margin: 0 0 15px 0
+      text-align: justify
+      text-indent: 50px
+  section.sidebar
+    background: $green-regular
+    h2
+      font-size: $font-size-subtitle
+      @media screen and (max-width: $breakpoint)
+        font-size: get-vw($font-size-subtitle)
+      margin: 30px 0 10px 0
+      text-transform: uppercase
+    h2:first-child
+      margin-top: 0
+    ul
+      list-style-type: none
+      padding: 0
+    ul.sidebar-share
+      li
+        display: block
+        margin-right: 1px
+        a
+          display: block
+          background: rgba($white, .25)
+          color: $white
+          padding: 10px 0
+          text-align: center
+        a:hover
+          color: $green-dark
+      li:last-child
+        margin-right: 0
+    ul.sidebar-categories
+      li
+        display: block
+        a
+          color: $white
+          text-decoration: underline
+        a:hover
+          color: $green-light
+  .content-bg-layer
+    position: absolute
+    top: 15px
+    right: 15px
+    bottom: 15px
+    left: 15px
+    background: rgba($green-dark, .25)
+    z-index: 1
+  .content-wrapper
+    position: relative
+    z-index: 10
+footer
+  background: $green-light
+  margin-top: 15px
+  padding: 10px 15px
+  p
+    margin: 0
+    @media screen and (max-width: $breakpoint)
+      text-align: center
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    text-align: right
+    @media screen and (max-width: $breakpoint)
+      text-align: center
+    li
+      display: inline-block
+      margin-right: 5px
+      a
+        color: $white
+        text-decoration: underline
+      a:hover
+        color: $green-dark
+    li:last-child
+      margin-right: 0
